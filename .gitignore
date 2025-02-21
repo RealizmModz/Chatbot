@@ -1,1 +1,25 @@
-.env
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+*.env
+
+# MacOS
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+# Test / coverage reports
+coverage/
+
+# Logs
+*.log
