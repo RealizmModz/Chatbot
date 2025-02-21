@@ -20,11 +20,16 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 if not openai.api_key:
     raise Exception("OPENAI_API_KEY not set")
 
-# Connect to MongoDB with TLS settings (development only)
+# Connect to MongoDB with TLS and allow invalid certificates and hostnames (development only)
 mongo_uri = os.environ.get("MONGO_URI")
 if not mongo_uri:
     raise Exception("MONGO_URI not set")
-client = MongoClient(mongo_uri, tls=True, tlsAllowInvalidCertificates=True)
+client = MongoClient(
+    mongo_uri,
+    tls=True,
+    tlsAllowInvalidCertificates=True,
+    tlsAllowInvalidHostnames=True
+)
 db = client.get_database("chatbot_db")
 conversations_collection = db.conversations
 
